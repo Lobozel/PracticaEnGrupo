@@ -43,7 +43,7 @@ public class CreacionEsquema {
             "  `ApellidoP` VARCHAR(25) NULL," +
             "  `ApellidoM` VARCHAR(25) NULL," +
             "  `FechaNac` DATE NULL," +
-            "  `Delegado` BINARY NULL," +
+            "  `Delegado` BINARY(10) NULL," +
             "  PRIMARY KEY (`Expediente`)," +
             "  UNIQUE INDEX `Expediente_UNIQUE` (`Expediente` ASC) VISIBLE);";
     String tablaModulo_Alumno=

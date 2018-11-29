@@ -12,7 +12,8 @@ package Ejercicios;
 public class ModificarTablaModuloAlumno {
     //Sentencias SQL que usará esta clase:    
     String modificarModuloAlumno=
-            "";
+            "ALTER TABLE `instituto`.`modulo_alumno`" +
+"ADD COLUMN `notaFinal` INT NULL AFTER `Codigo_modulo`;";
     /*
     * Este método añade un nuevo campo a la tabla Modulo_Alumnos
     * Se le pasa como parámetros los datos de MySQL necesarios para la conexión.

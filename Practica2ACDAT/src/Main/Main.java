@@ -3,6 +3,8 @@ package Main;
 
 import Ejercicios.CreacionEsquema;
 import Ejercicios.InsertarDatosAlumnos;
+import Ejercicios.InsertarProcedimientoAltaAlumnos;
+import Ejercicios.InsertarProcedimientoMatricularAlumnos;
 
 /**
  *
@@ -14,7 +16,7 @@ public class Main {
         String user="root";
         String pass="root";
         
-        InsertarDatosAlumnos polla1 = new InsertarDatosAlumnos();
-        polla1.Ejercicio2_Alumnos(url, user, pass);
+        InsertarProcedimientoMatricularAlumnos polla1 = new InsertarProcedimientoMatricularAlumnos();
+        polla1.Ejercicio2_ejecutarMatricularAlumnos(url, user, pass);
     }
 }

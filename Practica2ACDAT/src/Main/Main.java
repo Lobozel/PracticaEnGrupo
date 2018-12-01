@@ -1,10 +1,10 @@
 
 package Main;
 
-import Ejercicios.CreacionEsquema;
-import Ejercicios.InsertarDatosAlumnos;
-import Ejercicios.InsertarProcedimientoAltaAlumnos;
-import Ejercicios.InsertarProcedimientoMatricularAlumnos;
+import Ejercicios.Consultas.CreacionEsquema;
+import Ejercicios.InsertarDatos.InsertarDatosAlumnos;
+import Ejercicios.Procedimientos.InsertarProcedimientoAltaAlumnos;
+import Ejercicios.Procedimientos.InsertarProcedimientoMatricularAlumnos;
 
 /**
  *

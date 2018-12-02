@@ -35,7 +35,6 @@ public class InsertarDatosProfesores {
             conexion=DriverManager.getConnection(url,user,pass);
             sentencia=conexion.createStatement();
             sentencia.execute(insertarProfesores);
-            System.out.println("Ha funcionao wey");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(CreacionEsquema.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {

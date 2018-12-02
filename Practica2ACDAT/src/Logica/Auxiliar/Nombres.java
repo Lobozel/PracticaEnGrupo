@@ -2,7 +2,7 @@ package Logica.Auxiliar;
 /*
 * Esta clase es sirve de forma auxiliar para la ventana
 * Cada vez que hay que escoger entre un alumno o un modulo
-* la ventana dispone de un menu desplegable con todos los
+* la ventana dispone de una lista desplegable con todos los
 * alumnos o modulos, los cuales saco desde aquí.
 * Esto tiene como objetivo ofrecer una interfaz más sencilla
 * y cómoda para el usuario a la hora de gestionar la BD.
@@ -25,7 +25,7 @@ public class Nombres {
     String nombresAlumnos
             = "SELECT nombre FROM alumno;";
     String nombresModulos
-            = "SELECT nombre FROM modulo;";
+            = "SELECT Nombre FROM modulo;";
 
     //Objetos comunes
     Connection conexion = null;
@@ -74,7 +74,7 @@ public class Nombres {
         int cont = 0;
 
         try {
-            result = sentencia.executeQuery(this.nombresAlumnos);
+            result = sentencia.executeQuery(this.nombresModulos);
             while (result.next()) {
                 nombresModulos[cont] = result.getString(1);
                 cont++;

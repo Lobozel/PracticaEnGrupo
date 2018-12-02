@@ -23,7 +23,7 @@ public class Main {
         
         String[] prueba = new String[contar.contarAlumnos()];;
         
-        prueba=nombres.listaNombresAlumnos();
+        prueba=nombres.listaNombresModulos();
         
         for(int i=0;i<prueba.length;i++){
             System.out.println(prueba[i]);

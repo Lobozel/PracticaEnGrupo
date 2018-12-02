@@ -1,27 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Intefaz;
 
 import Logica.ControlActionListener;
 
 /**
  *
- * @author loboz
+ * @author MiguelAngel & Sergey
  */
 public class Ventana extends javax.swing.JFrame {
 
     ControlActionListener control;
     
     /**
-     * Creates new form Ventana
+     * Constructor de la ventana
      */
     public Ventana() {
         initComponents();
+        
         control = new ControlActionListener(this);
         
+        //Poner botones a la escucha
         this.crearEsquema.addActionListener(control);
         this.insertarDatos.addActionListener(control);
         this.Procedimientos.addActionListener(control);
@@ -31,6 +29,20 @@ public class Ventana extends javax.swing.JFrame {
         this.Alumnos.addActionListener(control);
         this.Modulos.addActionListener(control);
         this.Profesores.addActionListener(control);
+        this.introAlumnos.addActionListener(control);
+        this.introModulos.addActionListener(control);
+        this.introProfesores.addActionListener(control);
+        this.insertarAltaAlumnos.addActionListener(control);
+        this.insertarMatriculaAlumnos.addActionListener(control);
+        this.altaAlumnos.addActionListener(control);
+        this.matricular.addActionListener(control);
+        this.listarNotas.addActionListener(control);
+        this.listarProfesores.addActionListener(control);
+        this.listarAlumnos.addActionListener(control);
+        this.modAlumno.addActionListener(control);
+        this.modModulo.addActionListener(control);
+        this.eliminarAlumno.addActionListener(control);
+        this.eliminarModulo.addActionListener(control);
     }
 
     /**
@@ -663,7 +675,7 @@ public class Ventana extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        ProcedimientosAlmacenados.setBounds(new java.awt.Rectangle(0, 0, 450, 280));
+        ProcedimientosAlmacenados.setBounds(new java.awt.Rectangle(0, 0, 500, 280));
 
         altaAlumnos.setText("Alumnos dados de Alta");
 

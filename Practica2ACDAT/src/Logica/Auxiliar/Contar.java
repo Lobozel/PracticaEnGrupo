@@ -2,7 +2,7 @@ package Logica.Auxiliar;
 /*
 * Esta clase es sirve de forma auxiliar para la ventana
 * Cada vez que hay que escoger entre un alumno o un modulo
-* la ventana dispone de un menu desplegable con todos los
+* la ventana dispone de una lista desplegable con todos los
 * alumnos o modulos, la cantidad de estos la saco de aquí.
 * Esto tiene como objetivo ofrecer una interfaz más sencilla
 * y cómoda para el usuario a la hora de gestionar la BD.

@@ -842,7 +842,7 @@
     <Container class="javax.swing.JFrame" name="ProcedimientosAlmacenados">
       <Properties>
         <Property name="bounds" type="java.awt.Rectangle" editor="org.netbeans.beaninfo.editors.RectangleEditor">
-          <Rectangle value="[0, 0, 450, 280]"/>
+          <Rectangle value="[0, 0, 500, 280]"/>
         </Property>
       </Properties>
       <AuxValues>

@@ -38,6 +38,6 @@ public class ModificarTablaModuloAlumno {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
             System.out.println(ex.getCause());
         }
-        JOptionPane.showMessageDialog(null, "La Tabla ya está modificada.", "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, "La Tabla ya está modificada.", "Error", JOptionPane.WARNING_MESSAGE);
     } 
 }

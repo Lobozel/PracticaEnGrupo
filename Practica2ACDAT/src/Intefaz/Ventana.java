@@ -653,11 +653,7 @@ public class Ventana extends javax.swing.JFrame {
 
         Alumno.setText("Alumno:");
 
-        listaAlumnos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Miguel Ángel", "Sergey", "Julian", "Juan" }));
-
         Modulo.setText("Modulo:");
-
-        listaModulos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ACDAT", "PSP", " " }));
 
         matricular.setText("Matricular Alumno");
 
@@ -727,11 +723,7 @@ public class Ventana extends javax.swing.JFrame {
 
         listarNotas.setText("Listado de Notas del Modulo Seleccionado");
 
-        notasModulo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ACDAT", "PSP" }));
-
         listarProfesores.setText("Listado de Profesores del Alumno Seleccionado");
-
-        profesorAlumno.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Miguel Ángel", "Sergey", "Julian", "Juan" }));
 
         RConsulta.setText("Respuesta de la consulta:");
 
@@ -739,8 +731,6 @@ public class Ventana extends javax.swing.JFrame {
         RespuestaConsulta.setColumns(20);
         RespuestaConsulta.setRows(5);
         jScrollPane1.setViewportView(RespuestaConsulta);
-
-        alumnoModulo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ACDAT", "PSP" }));
 
         listarAlumnos.setText("Listado de Alumnos del Modulo Seleccionado");
 
@@ -791,8 +781,6 @@ public class Ventana extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        alumnoMB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Miguel Ángel", "Sergey", "Julian", "Juan" }));
-
         eliminarAlumno.setText("Eliminar Alumno");
 
         jLabel8.setText("Nombre:");
@@ -809,8 +797,6 @@ public class Ventana extends javax.swing.JFrame {
         condDelegado.setSelectedIndex(1);
 
         modAlumno.setText("Modificar Alumno");
-
-        moduloMB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ACDAT", "PSP" }));
 
         eliminarModulo.setText("Eliminar Modulo");
 
@@ -834,26 +820,28 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(ActualizarBorrarLayout.createSequentialGroup()
                         .addComponent(notaAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(modModulo))
+                        .addComponent(modModulo, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
                     .addGroup(ActualizarBorrarLayout.createSequentialGroup()
-                        .addGroup(ActualizarBorrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(moduloMB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(ActualizarBorrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(ActualizarBorrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(nombreAlumno, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(alumnoMB, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(jLabel8)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(ActualizarBorrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Nombre)
+                        .addGroup(ActualizarBorrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ActualizarBorrarLayout.createSequentialGroup()
-                                .addComponent(condDelegado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(modAlumno))
-                            .addComponent(eliminarAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(eliminarModulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(cambiarNota))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(ActualizarBorrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(ActualizarBorrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(moduloMB, 0, 89, Short.MAX_VALUE)
+                                        .addComponent(alumnoMB, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nombreAlumno))
+                                    .addComponent(jLabel8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(ActualizarBorrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Nombre)
+                                    .addGroup(ActualizarBorrarLayout.createSequentialGroup()
+                                        .addComponent(condDelegado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(modAlumno))
+                                    .addComponent(eliminarModulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(eliminarAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(cambiarNota))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         ActualizarBorrarLayout.setVerticalGroup(
             ActualizarBorrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

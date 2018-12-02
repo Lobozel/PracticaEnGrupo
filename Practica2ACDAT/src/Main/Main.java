@@ -5,6 +5,8 @@ import Ejercicios.Consultas.CreacionEsquema;
 import Ejercicios.InsertarDatos.InsertarDatosAlumnos;
 import Ejercicios.Procedimientos.InsertarProcedimientoAltaAlumnos;
 import Ejercicios.Procedimientos.InsertarProcedimientoMatricularAlumnos;
+import Logica.Auxiliar.Contar;
+import Logica.Auxiliar.Nombres;
 
 /**
  *
@@ -16,7 +18,18 @@ public class Main {
         String user="root";
         String pass="root";
         
-        InsertarProcedimientoMatricularAlumnos polla1 = new InsertarProcedimientoMatricularAlumnos();
-        polla1.Ejercicio2_ejecutarMatricularAlumnos(url, user, pass);
+        Contar contar = new Contar(url,user,pass);
+        Nombres nombres = new Nombres(url,user,pass);
+        
+        String[] prueba = new String[contar.contarAlumnos()];;
+        
+        prueba=nombres.listaNombresAlumnos();
+        
+        for(int i=0;i<prueba.length;i++){
+            System.out.println(prueba[i]);
+        }
+        
+        //Contar polla1 = new Contar();
+        //polla1.contarAlumnos(url, user, pass);
     }
 }

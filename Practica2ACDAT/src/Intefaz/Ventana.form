@@ -922,12 +922,7 @@
         <Component class="javax.swing.JComboBox" name="listaAlumnos">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Miguel &#xc1;ngel"/>
-                <StringItem index="1" value="Sergey"/>
-                <StringItem index="2" value="Julian"/>
-                <StringItem index="3" value="Juan"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -942,11 +937,7 @@
         <Component class="javax.swing.JComboBox" name="listaModulos">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="ACDAT"/>
-                <StringItem index="1" value="PSP"/>
-                <StringItem index="2" value=" "/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -1061,10 +1052,7 @@
         <Component class="javax.swing.JComboBox" name="notasModulo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="ACDAT"/>
-                <StringItem index="1" value="PSP"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -1082,12 +1070,7 @@
         <Component class="javax.swing.JComboBox" name="profesorAlumno">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Miguel &#xc1;ngel"/>
-                <StringItem index="1" value="Sergey"/>
-                <StringItem index="2" value="Julian"/>
-                <StringItem index="3" value="Juan"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -1121,10 +1104,7 @@
         <Component class="javax.swing.JComboBox" name="alumnoModulo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="ACDAT"/>
-                <StringItem index="1" value="PSP"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -1155,34 +1135,37 @@
                       <Group type="102" attributes="0">
                           <Component id="notaAlumno" min="-2" pref="149" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="modModulo" min="-2" max="-2" attributes="0"/>
+                          <Component id="modModulo" pref="117" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="moduloMB" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="nombreAlumno" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="alumnoMB" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="moduloMB" pref="89" max="32767" attributes="0"/>
+                                          <Component id="alumnoMB" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="nombreAlumno" alignment="1" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="Nombre" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="condDelegado" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="modAlumno" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="eliminarModulo" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="eliminarAlumno" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
+                              <Component id="cambiarNota" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="Nombre" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="condDelegado" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="modAlumno" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="eliminarAlumno" alignment="0" max="32767" attributes="0"/>
-                              <Component id="eliminarModulo" max="32767" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="cambiarNota" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -1226,12 +1209,7 @@
         <Component class="javax.swing.JComboBox" name="alumnoMB">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Miguel &#xc1;ngel"/>
-                <StringItem index="1" value="Sergey"/>
-                <StringItem index="2" value="Julian"/>
-                <StringItem index="3" value="Juan"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -1289,10 +1267,7 @@
         <Component class="javax.swing.JComboBox" name="moduloMB">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="ACDAT"/>
-                <StringItem index="1" value="PSP"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>

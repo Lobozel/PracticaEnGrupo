@@ -1,7 +1,8 @@
-
 package Intefaz;
 
 import Logica.ControlActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -10,15 +11,15 @@ import Logica.ControlActionListener;
 public class Ventana extends javax.swing.JFrame {
 
     ControlActionListener control;
-    
+
     /**
      * Constructor de la ventana
      */
     public Ventana() {
         initComponents();
-        
+
         control = new ControlActionListener(this);
-        
+
         //Poner botones a la escucha
         this.crearEsquema.addActionListener(control);
         this.insertarDatos.addActionListener(control);
@@ -43,6 +44,20 @@ public class Ventana extends javax.swing.JFrame {
         this.modModulo.addActionListener(control);
         this.eliminarAlumno.addActionListener(control);
         this.eliminarModulo.addActionListener(control);
+
+        //A través de una clase anonima solo permito escribir dígitos en la nota
+        this.notaAlumno.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                char caracter = e.getKeyChar();
+
+                // Verifica si la tecla pulsada no es un dígito
+                if (((caracter < '0')
+                        || (caracter > '9'))
+                        && (caracter != '\b' /*corresponde a BACK_SPACE*/)) {
+                    e.consume();  // consume la letra
+                }
+            }
+        });
     }
 
     /**
@@ -1042,8 +1057,8 @@ public class Ventana extends javax.swing.JFrame {
             public void run() {
                 new Ventana().setVisible(true);
             }
-        });       
-        
+        });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

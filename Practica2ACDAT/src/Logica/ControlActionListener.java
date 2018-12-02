@@ -5,10 +5,8 @@
  */
 package Logica;
 
-import Ejercicios.Actualizaciones.EliminarAlumno;
-import Ejercicios.Actualizaciones.EliminarModulo;
-import Ejercicios.Actualizaciones.ModificacionDatosAlumno;
-import Ejercicios.Actualizaciones.ModificacionNotaAlumno;
+import Ejercicios.Actualizaciones.EliminarDatos;
+import Ejercicios.Actualizaciones.Modificaciones;
 import Ejercicios.Consultas.ConsultaAlumnos;
 import Ejercicios.Consultas.ConsultaNotas;
 import Ejercicios.Consultas.ConsultaProfesores;
@@ -46,10 +44,8 @@ public class ControlActionListener implements ActionListener {
     ConsultaAlumnos alumnos = new ConsultaAlumnos();
     ConsultaNotas notas = new ConsultaNotas();
     ConsultaProfesores profesores = new ConsultaProfesores();
-    EliminarAlumno eliminarAlumno = new EliminarAlumno();
-    EliminarModulo eliminarModulo = new EliminarModulo();
-    ModificacionDatosAlumno modDatosAlumno = new ModificacionDatosAlumno();
-    ModificacionNotaAlumno modNotaAlumno = new ModificacionNotaAlumno();
+    EliminarDatos eliminar = new EliminarDatos();
+    Modificaciones modificar = new Modificaciones();
     ModificarTablaModuloAlumno modificarTabla = new ModificarTablaModuloAlumno();
     Contar contar = new Contar(url, user, pass);
     Nombres nombres = new Nombres(url, user, pass);
@@ -227,10 +223,10 @@ public class ControlActionListener implements ActionListener {
                 JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Alumnos", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 int resultado = altaAlumnos.Ejercicio2_ejecutaraltaAlumnos(url, user, pass);
-                if(resultado==-1){
+                if (resultado == -1) {
                     JOptionPane.showMessageDialog(v, "Es necesario insertar primero el Procedimiento.", "Error", JOptionPane.ERROR_MESSAGE);
-                }else{
-                    v.RespuestaAltaAlumnos.setText(resultado+" alumnos introducidos.");
+                } else {
+                    v.RespuestaAltaAlumnos.setText(resultado + " alumnos introducidos.");
                 }
             }
         }
@@ -259,7 +255,7 @@ public class ControlActionListener implements ActionListener {
          * Modificar Tabla Modulo_Alumno
          */
         if (e.getSource() == v.modModulo_Alumno) {
-
+            modificarTabla.Ejercicio3(url, user, pass);
         }
         //----------------------------------------------------------------------
         /*
@@ -279,20 +275,79 @@ public class ControlActionListener implements ActionListener {
          * Actualizar Datos
          */
         if (e.getSource() == v.modAlumno) {
-
+            //Compruebo si ya se ha introducido o no los alumnos
+            int comprobar = contar.contarAlumnos();
+            if (comprobar == 0) {
+                JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Alumnos", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                if (v.nombreAlumno.getText().trim().length() == 0) {
+                    JOptionPane.showMessageDialog(v, "Debes introducir un nombre nuevo.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    String nombre = v.nombreAlumno.getText().trim();
+                    String delegado = "";
+                    int id = v.alumnoMB.getSelectedIndex() + 1;
+                    if (v.condDelegado.getSelectedIndex() == 0) {
+                        delegado = "_binary 'true\\0\\0\\0\\0\\0\\0'";
+                    } else {
+                        delegado = "_binary 'false\\0\\0\\0\\0\\0'";
+                    }
+                    modificar.datosAlumno(url, user, pass, nombre, delegado, id);
+                    String[] alumnos = nombres.listaNombresAlumnos();
+                    v.alumnoMB.removeAllItems();
+                    for (String alumno : alumnos) {
+                        v.alumnoMB.addItem(alumno);
+                    }
+                }
+            }
         }
         if (e.getSource() == v.modModulo) {
-
+            //Compruebo si ya se ha introducido o no los alumnos y de los modulos
+            int comprobarA = contar.contarAlumnos();
+            int comprobarM = contar.contarModulos();
+            if (comprobarA == 0 || comprobarM == 0) {
+                JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Alumnos\n"
+                        + "y los datos de los Modulos", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                if (v.notaAlumno.getText().trim().length() == 0) {
+                    JOptionPane.showMessageDialog(v, "Debes introducir una nota nueva.", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                   int idA=v.alumnoMB.getSelectedIndex()+1;
+                   int idM=v.moduloMB.getSelectedIndex()+1;
+                   /*Solo permito digitos en la caja de nota, por lo que puedo
+                   convertirlo a int sin miedo*/
+                   int nota=Integer.parseInt(v.notaAlumno.getText());
+                   //valido que la nota sea válida
+                   if(nota<0 || nota>10){
+                       JOptionPane.showMessageDialog(v, "Introduce una nota válida.", "Error", JOptionPane.ERROR_MESSAGE);
+                   }else{
+                       modificar.notaAlumno(url, user, pass, idA, idM, nota);
+                   }
+                }
+            }
         }
         //----------------------------------------------------------------------
         /*
          * Borrar Datos
          */
         if (e.getSource() == v.eliminarAlumno) {
-
+            //Compruebo si ya se ha introducido o no los alumnos
+            int comprobar = contar.contarAlumnos();
+            if (comprobar == 0) {
+                JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Alumnos", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                int id=v.alumnoMB.getSelectedIndex()+1;
+                eliminar.eliminarAlumno(url, user, pass, id);
+            }
         }
         if (e.getSource() == v.eliminarModulo) {
-
+            //Compruebo si ya se ha introducido o no los modulos
+            int comprobar = contar.contarModulos();
+            if (comprobar == 0) {
+                JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Modulos", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                int id=v.moduloMB.getSelectedIndex()+1;
+                eliminar.eliminarModulo(url, user, pass, id);
+            }
         }
         //----------------------------------------------------------------------
     }

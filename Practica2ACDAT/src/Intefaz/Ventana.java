@@ -26,6 +26,11 @@ public class Ventana extends javax.swing.JFrame {
         this.insertarDatos.addActionListener(control);
         this.Procedimientos.addActionListener(control);
         this.modModulo_Alumno.addActionListener(control);
+        this.verConsultas.addActionListener(control);
+        this.ActualizacionesBorrado.addActionListener(control);
+        this.Alumnos.addActionListener(control);
+        this.Modulos.addActionListener(control);
+        this.Profesores.addActionListener(control);
     }
 
     /**
@@ -121,7 +126,6 @@ public class Ventana extends javax.swing.JFrame {
         Modulo = new javax.swing.JLabel();
         listaModulos = new javax.swing.JComboBox();
         matricular = new javax.swing.JButton();
-        RespuestaMatricula = new javax.swing.JLabel();
         insertarAltaAlumnos = new javax.swing.JButton();
         insertarMatriculaAlumnos = new javax.swing.JButton();
         consultas = new javax.swing.JFrame();
@@ -156,6 +160,9 @@ public class Ventana extends javax.swing.JFrame {
         verConsultas = new javax.swing.JButton();
         ActualizacionesBorrado = new javax.swing.JButton();
 
+        IntroducirDatos.setTitle("Introducir Datos");
+        IntroducirDatos.setBounds(new java.awt.Rectangle(0, 0, 235, 160));
+
         Alumnos.setText("Insertar Alumnos Obligatorios");
 
         Profesores.setText("Insertar Profesores Obligatorios");
@@ -187,6 +194,10 @@ public class Ventana extends javax.swing.JFrame {
                 .addComponent(Profesores)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        IntroducirAlumnos.setTitle("Introducir Alumnos");
+        IntroducirAlumnos.setBounds(new java.awt.Rectangle(0, 0, 445, 265));
+        IntroducirAlumnos.setResizable(false);
 
         Expediente.setText("Expediente");
 
@@ -309,6 +320,26 @@ public class Ventana extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(IntroducirAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(IntroducirAlumnosLayout.createSequentialGroup()
+                                .addGroup(IntroducirAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jTextField19, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextField18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
+                                    .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(IntroducirAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(IntroducirAlumnosLayout.createSequentialGroup()
+                                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextField23, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE))
+                                    .addGroup(IntroducirAlumnosLayout.createSequentialGroup()
+                                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextField25))
+                                    .addGroup(IntroducirAlumnosLayout.createSequentialGroup()
+                                        .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTextField24)))
+                                .addGap(12, 12, 12))
+                            .addGroup(IntroducirAlumnosLayout.createSequentialGroup()
                                 .addGroup(IntroducirAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(IntroducirAlumnosLayout.createSequentialGroup()
                                         .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -319,29 +350,13 @@ public class Ventana extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(FechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(IntroducirAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(Delegado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField13)))
-                            .addGroup(IntroducirAlumnosLayout.createSequentialGroup()
-                                .addGroup(IntroducirAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTextField19, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                                    .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(IntroducirAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(IntroducirAlumnosLayout.createSequentialGroup()
-                                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField23, javax.swing.GroupLayout.DEFAULT_SIZE, 53, Short.MAX_VALUE))
+                                        .addComponent(Delegado)
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(IntroducirAlumnosLayout.createSequentialGroup()
-                                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField25))
-                                    .addGroup(IntroducirAlumnosLayout.createSequentialGroup()
-                                        .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField24)))))
-                        .addGap(12, 12, 12))
+                                        .addComponent(jTextField13)
+                                        .addContainerGap())))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, IntroducirAlumnosLayout.createSequentialGroup()
                         .addComponent(introAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
@@ -393,6 +408,9 @@ public class Ventana extends javax.swing.JFrame {
                 .addComponent(introAlumnos)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        IntroducirProfesores.setTitle("Introducir Profesores");
+        IntroducirProfesores.setBounds(new java.awt.Rectangle(0, 0, 600, 220));
 
         jLabel9.setText("RFC");
 
@@ -583,6 +601,9 @@ public class Ventana extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        IntroducirModulos.setTitle("Insertar Modulos");
+        IntroducirModulos.setBounds(new java.awt.Rectangle(0, 0, 180, 180));
+
         jLabel16.setText("Codigo");
 
         jLabel17.setText("Nombre");
@@ -618,7 +639,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField56, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
                             .addComponent(jTextField55))
-                        .addGap(1, 1, Short.MAX_VALUE))
+                        .addGap(12, 34, Short.MAX_VALUE))
                     .addComponent(introModulos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -641,6 +662,8 @@ public class Ventana extends javax.swing.JFrame {
                 .addComponent(introModulos)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        ProcedimientosAlmacenados.setBounds(new java.awt.Rectangle(0, 0, 450, 280));
 
         altaAlumnos.setText("Alumnos dados de Alta");
 
@@ -670,7 +693,6 @@ public class Ventana extends javax.swing.JFrame {
                 .addGroup(ProcedimientosAlmacenadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(insertarAltaAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(matricular, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(RespuestaMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(ProcedimientosAlmacenadosLayout.createSequentialGroup()
                         .addGroup(ProcedimientosAlmacenadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(altaAlumnos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -716,10 +738,10 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(listaModulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(matricular)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(RespuestaMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        consultas.setBounds(new java.awt.Rectangle(0, 0, 500, 300));
 
         listarNotas.setText("Listado de Notas del Modulo Seleccionado");
 
@@ -750,7 +772,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, consultasLayout.createSequentialGroup()
                                 .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(listarNotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(listarProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                                    .addComponent(listarProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
                                     .addComponent(listarAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -780,6 +802,8 @@ public class Ventana extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        ActualizarBorrar.setBounds(new java.awt.Rectangle(0, 0, 340, 250));
 
         eliminarAlumno.setText("Eliminar Alumno");
 
@@ -820,7 +844,7 @@ public class Ventana extends javax.swing.JFrame {
                     .addGroup(ActualizarBorrarLayout.createSequentialGroup()
                         .addComponent(notaAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(modModulo, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE))
+                        .addComponent(modModulo, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
                     .addGroup(ActualizarBorrarLayout.createSequentialGroup()
                         .addGroup(ActualizarBorrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ActualizarBorrarLayout.createSequentialGroup()
@@ -841,7 +865,7 @@ public class Ventana extends javax.swing.JFrame {
                                     .addComponent(eliminarAlumno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(cambiarNota))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGap(52, 52, 52))
         );
         ActualizarBorrarLayout.setVerticalGroup(
             ActualizarBorrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1037,7 +1061,6 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JLabel RConsulta;
     public javax.swing.JTextField RespuestaAltaAlumnos;
     public javax.swing.JTextArea RespuestaConsulta;
-    public javax.swing.JLabel RespuestaMatricula;
     public javax.swing.JButton altaAlumnos;
     public javax.swing.JComboBox alumnoMB;
     public javax.swing.JComboBox alumnoModulo;

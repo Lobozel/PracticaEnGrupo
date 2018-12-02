@@ -1030,15 +1030,14 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="listarNotas" max="32767" attributes="0"/>
                                       <Component id="listarProfesores" pref="333" max="32767" attributes="0"/>
-                                      <Component id="listarAlumnos" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="notasModulo" max="32767" attributes="0"/>
                                       <Component id="profesorAlumno" pref="100" max="32767" attributes="0"/>
-                                      <Component id="alumnoModulo" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Component id="listarAlumnos" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
@@ -1060,10 +1059,7 @@
                       <Component id="profesorAlumno" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="alumnoModulo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="listarAlumnos" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="listarAlumnos" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                   <Component id="RConsulta" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1134,19 +1130,9 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JComboBox" name="alumnoModulo">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JButton" name="listarAlumnos">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Listado de Alumnos del Modulo Seleccionado"/>
+            <Property name="text" type="java.lang.String" value="Cantidad de Alumnos en cada Modulo"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

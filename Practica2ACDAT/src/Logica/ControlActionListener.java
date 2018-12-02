@@ -41,7 +41,7 @@ public class ControlActionListener implements ActionListener {
     InsertarDatosProfesores datosProfesores = new InsertarDatosProfesores();
     ProcedimientoAltaAlumnos altaAlumnos = new ProcedimientoAltaAlumnos();
     ProcedimientoMatricularAlumnos matricularAlumnos = new ProcedimientoMatricularAlumnos();
-    ConsultaAlumnos alumnos = new ConsultaAlumnos();
+    ConsultaAlumnos alumnos = new ConsultaAlumnos(url, user, pass);
     ConsultaNotas notas = new ConsultaNotas();
     ConsultaProfesores profesores = new ConsultaProfesores();
     EliminarDatos eliminar = new EliminarDatos();
@@ -118,10 +118,6 @@ public class ControlActionListener implements ActionListener {
             v.notasModulo.removeAllItems();
             for (String modulo : modulos) {
                 v.notasModulo.addItem(modulo);
-            }
-            v.alumnoModulo.removeAllItems();
-            for (String modulo : modulos) {
-                v.alumnoModulo.addItem(modulo);
             }
             v.profesorAlumno.removeAllItems();
             for (String alumno : alumnos) {
@@ -268,7 +264,24 @@ public class ControlActionListener implements ActionListener {
 
         }
         if (e.getSource() == v.listarAlumnos) {
+            //Compruebo si ya se ha introducido o no los alumnos y de los modulos
+            int comprobarA = contar.contarAlumnos();
+            int comprobarM = contar.contarModulos();
+            if (comprobarA == 0 || comprobarM == 0) {
+                JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Alumnos\n"
+                        + "y los datos de los Modulos", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
 
+                String[] modulos = nombres.listaNombresModulos();
+                int cantidad = contar.contarModulos();
+                String[] resultado;
+                resultado = alumnos.alumnosPorModulo(modulos, cantidad);
+                v.RespuestaConsulta.setText(""); //Borro si hubiese algo
+                //Pego la consulta en la caja de área de texto
+                for (int i = 0; i < resultado.length; i++) {
+                    v.RespuestaConsulta.append(resultado[i] + "\n");
+                }
+            }
         }
         //----------------------------------------------------------------------
         /*
@@ -311,17 +324,17 @@ public class ControlActionListener implements ActionListener {
                 if (v.notaAlumno.getText().trim().length() == 0) {
                     JOptionPane.showMessageDialog(v, "Debes introducir una nota nueva.", "Error", JOptionPane.ERROR_MESSAGE);
                 } else {
-                   int idA=v.alumnoMB.getSelectedIndex()+1;
-                   int idM=v.moduloMB.getSelectedIndex()+1;
-                   /*Solo permito digitos en la caja de nota, por lo que puedo
-                   convertirlo a int sin miedo*/
-                   int nota=Integer.parseInt(v.notaAlumno.getText());
-                   //valido que la nota sea válida
-                   if(nota<0 || nota>10){
-                       JOptionPane.showMessageDialog(v, "Introduce una nota válida.", "Error", JOptionPane.ERROR_MESSAGE);
-                   }else{
-                       modificar.notaAlumno(url, user, pass, idA, idM, nota);
-                   }
+                    int idA = v.alumnoMB.getSelectedIndex() + 1;
+                    int idM = v.moduloMB.getSelectedIndex() + 1;
+                    /*Solo permito digitos en la caja de nota, por lo que puedo
+                     convertirlo a int sin miedo*/
+                    int nota = Integer.parseInt(v.notaAlumno.getText());
+                    //valido que la nota sea válida
+                    if (nota < 0 || nota > 10) {
+                        JOptionPane.showMessageDialog(v, "Introduce una nota válida.", "Error", JOptionPane.ERROR_MESSAGE);
+                    } else {
+                        modificar.notaAlumno(url, user, pass, idA, idM, nota);
+                    }
                 }
             }
         }
@@ -335,7 +348,7 @@ public class ControlActionListener implements ActionListener {
             if (comprobar == 0) {
                 JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Alumnos", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                int id=v.alumnoMB.getSelectedIndex()+1;
+                int id = v.alumnoMB.getSelectedIndex() + 1;
                 eliminar.eliminarAlumno(url, user, pass, id);
             }
         }
@@ -345,7 +358,7 @@ public class ControlActionListener implements ActionListener {
             if (comprobar == 0) {
                 JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Modulos", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                int id=v.moduloMB.getSelectedIndex()+1;
+                int id = v.moduloMB.getSelectedIndex() + 1;
                 eliminar.eliminarModulo(url, user, pass, id);
             }
         }

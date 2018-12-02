@@ -163,7 +163,6 @@ public class Ventana extends javax.swing.JFrame {
         RConsulta = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         RespuestaConsulta = new javax.swing.JTextArea();
-        alumnoModulo = new javax.swing.JComboBox();
         listarAlumnos = new javax.swing.JButton();
         ActualizarBorrar = new javax.swing.JFrame();
         alumnoMB = new javax.swing.JComboBox();
@@ -781,7 +780,7 @@ public class Ventana extends javax.swing.JFrame {
         RespuestaConsulta.setRows(5);
         jScrollPane1.setViewportView(RespuestaConsulta);
 
-        listarAlumnos.setText("Listado de Alumnos del Modulo Seleccionado");
+        listarAlumnos.setText("Cantidad de Alumnos en cada Modulo");
 
         javax.swing.GroupLayout consultasLayout = new javax.swing.GroupLayout(consultas.getContentPane());
         consultas.getContentPane().setLayout(consultasLayout);
@@ -799,13 +798,12 @@ public class Ventana extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, consultasLayout.createSequentialGroup()
                                 .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(listarNotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(listarProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
-                                    .addComponent(listarAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(listarProfesores, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(notasModulo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(profesorAlumno, 0, 100, Short.MAX_VALUE)
-                                    .addComponent(alumnoModulo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(profesorAlumno, 0, 100, Short.MAX_VALUE)))
+                            .addComponent(listarAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(14, 14, 14))))
         );
         consultasLayout.setVerticalGroup(
@@ -820,9 +818,7 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(listarProfesores)
                     .addComponent(profesorAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(consultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(alumnoModulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(listarAlumnos))
+                .addComponent(listarAlumnos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RConsulta)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1090,7 +1086,6 @@ public class Ventana extends javax.swing.JFrame {
     public javax.swing.JTextArea RespuestaConsulta;
     public javax.swing.JButton altaAlumnos;
     public javax.swing.JComboBox alumnoMB;
-    public javax.swing.JComboBox alumnoModulo;
     private javax.swing.JLabel cambiarNota;
     public javax.swing.JComboBox condDelegado;
     public javax.swing.JFrame consultas;

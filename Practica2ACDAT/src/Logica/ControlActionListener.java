@@ -42,8 +42,8 @@ public class ControlActionListener implements ActionListener {
     ProcedimientoAltaAlumnos altaAlumnos = new ProcedimientoAltaAlumnos();
     ProcedimientoMatricularAlumnos matricularAlumnos = new ProcedimientoMatricularAlumnos();
     ConsultaAlumnos alumnos = new ConsultaAlumnos(url, user, pass);
-    ConsultaNotas notas = new ConsultaNotas();
-    ConsultaProfesores profesores = new ConsultaProfesores();
+    ConsultaNotas notas = new ConsultaNotas(url,user,pass);
+    ConsultaProfesores profesores = new ConsultaProfesores(url,user,pass);
     EliminarDatos eliminar = new EliminarDatos();
     Modificaciones modificar = new Modificaciones();
     ModificarTablaModuloAlumno modificarTabla = new ModificarTablaModuloAlumno();
@@ -258,10 +258,40 @@ public class ControlActionListener implements ActionListener {
          * Ejecutar Consultas
          */
         if (e.getSource() == v.listarNotas) {
-
+            //Compruebo si ya se ha introducido o no los alumnos y de los modulos
+            int comprobarA = contar.contarAlumnos();
+            int comprobarM = contar.contarModulos();
+            if (comprobarA == 0 || comprobarM == 0) {
+                JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Alumnos\n"
+                        + "y los datos de los Modulos", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                int id=v.notasModulo.getSelectedIndex()+1;                
+                String[] resultado = notas.notasAlumno(id);
+                v.RespuestaConsulta.setText(""); //Borro si hubiese algo
+                v.RespuestaConsulta.append("Las notas del Modulo "+v.notasModulo.getSelectedItem().toString()+" son las siguientes:\n");
+                //Pego la consulta en la caja de área de texto
+                for (int i = 0; i < resultado.length; i++) {
+                    v.RespuestaConsulta.append(resultado[i] + "\n");
+                }
+            }
         }
         if (e.getSource() == v.listarProfesores) {
-
+//Compruebo si ya se ha introducido o no los alumnos y de los profesores
+            int comprobarA = contar.contarAlumnos();
+            int comprobarP = contar.contarProfesores();
+            if (comprobarA == 0 || comprobarP == 0) {
+                JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Alumnos\n"
+                        + "y los datos de los Profesores", "Error", JOptionPane.ERROR_MESSAGE);
+            } else {
+                int id=v.profesorAlumno.getSelectedIndex()+1;                
+                String[] resultado = profesores.profesoresDeAlumno(id);
+                v.RespuestaConsulta.setText(""); //Borro si hubiese algo
+                v.RespuestaConsulta.append("Los Profesores del alumno "+v.profesorAlumno.getSelectedItem().toString()+" son los siguientes:\n");
+                //Pego la consulta en la caja de área de texto
+                for (int i = 0; i < resultado.length; i++) {
+                    v.RespuestaConsulta.append(resultado[i] + "\n");
+                }
+            }
         }
         if (e.getSource() == v.listarAlumnos) {
             //Compruebo si ya se ha introducido o no los alumnos y de los modulos

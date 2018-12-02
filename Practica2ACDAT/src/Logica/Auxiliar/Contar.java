@@ -13,8 +13,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -40,14 +38,8 @@ public class Contar {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conexion = DriverManager.getConnection(url, user, pass);
             sentencia = conexion.createStatement();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Contar.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(Contar.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(Contar.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Contar.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
+            System.out.println(ex.getCause());
         }
     }
 
@@ -62,7 +54,7 @@ public class Contar {
                 cont = result.getInt(1);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Contar.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getCause());
         }
         
         return cont;
@@ -79,7 +71,7 @@ public class Contar {
                 cont = result.getInt(1);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Contar.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getCause());
         }
         
         return cont;
@@ -95,7 +87,7 @@ public class Contar {
                 cont = result.getInt(1);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Contar.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getCause());
         }
         
         return cont;

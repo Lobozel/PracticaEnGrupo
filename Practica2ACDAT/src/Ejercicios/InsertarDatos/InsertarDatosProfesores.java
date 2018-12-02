@@ -7,8 +7,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -36,10 +34,8 @@ public class InsertarDatosProfesores {
             sentencia=conexion.createStatement();
             sentencia.execute(insertarProfesores);
             JOptionPane.showMessageDialog(null, "Se han insertado los datos con éxito");
-        } catch (ClassNotFoundException ex) {
-        } catch (InstantiationException ex) {
-        } catch (IllegalAccessException ex) {
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
+            System.out.println(ex.getCause());
         }
     } 
 }

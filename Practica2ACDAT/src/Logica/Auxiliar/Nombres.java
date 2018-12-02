@@ -13,8 +13,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -40,14 +38,8 @@ public class Nombres {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conexion = DriverManager.getConnection(url, user, pass);
             sentencia = conexion.createStatement();
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Nombres.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(Nombres.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(Nombres.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Nombres.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
+            System.out.println(ex.getCause());
         }
     }
 
@@ -63,6 +55,7 @@ public class Nombres {
                 cont++;
             }
         } catch (SQLException ex) {
+            System.out.println(ex.getCause());
         }
 
         return nombresAlumnos;
@@ -80,6 +73,7 @@ public class Nombres {
                 cont++;
             }
         } catch (SQLException ex) {
+            System.out.println(ex.getCause());
         }
 
         return nombresModulos;

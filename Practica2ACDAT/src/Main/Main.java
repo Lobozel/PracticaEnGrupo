@@ -3,8 +3,8 @@ package Main;
 
 import Ejercicios.CrearEsquema;
 import Ejercicios.InsertarDatos.InsertarDatosAlumnos;
-import Ejercicios.Procedimientos.InsertarProcedimientoAltaAlumnos;
-import Ejercicios.Procedimientos.InsertarProcedimientoMatricularAlumnos;
+import Ejercicios.Procedimientos.ProcedimientoAltaAlumnos;
+import Ejercicios.Procedimientos.ProcedimientoMatricularAlumnos;
 import Logica.Auxiliar.Contar;
 import Logica.Auxiliar.Nombres;
 
@@ -20,12 +20,7 @@ public class Main {
         
         Contar contar = new Contar(url,user,pass);
         Nombres nombres = new Nombres(url,user,pass);
-        CrearEsquema crear = new CrearEsquema();
-        crear.Ejercicio1(url, user, pass);
-        
-        System.out.println(contar.contarModulos());
-        
-        //Contar polla1 = new Contar();
-        //polla1.contarAlumnos(url, user, pass);
+        ProcedimientoAltaAlumnos altaAlumnos = new ProcedimientoAltaAlumnos();
+        altaAlumnos.Ejercicio2_ejecutaraltaAlumnos(url, user, pass);
     }
 }

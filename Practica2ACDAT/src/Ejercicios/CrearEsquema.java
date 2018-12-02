@@ -89,15 +89,9 @@ public class CrearEsquema {
             sentencia.execute(tablaModulo_Alumno);
             JOptionPane.showMessageDialog(null, "Creación del Esquema de la BD realizado con éxito");
             return;
-        } catch (ClassNotFoundException ex) {
-            
-        } catch (InstantiationException ex) {
-            
-        } catch (IllegalAccessException ex) {
-            
-        } catch (SQLException ex) {
-            
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | SQLException ex) {
+            System.out.println(ex.getCause());
         }
-        JOptionPane.showMessageDialog(null, "El esquema ya está creado.");
+        JOptionPane.showMessageDialog(null, "El esquema ya está creado.","Error",JOptionPane.WARNING_MESSAGE);
     }    
 }

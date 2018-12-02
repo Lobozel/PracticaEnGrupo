@@ -3,13 +3,13 @@
  */
 package Ejercicios.InsertarDatos;
 
-import Ejercicios.Consultas.CreacionEsquema;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,14 +35,11 @@ public class InsertarDatosProfesores {
             conexion=DriverManager.getConnection(url,user,pass);
             sentencia=conexion.createStatement();
             sentencia.execute(insertarProfesores);
+            JOptionPane.showMessageDialog(null, "Se han insertado los datos con éxito");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CreacionEsquema.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            Logger.getLogger(CreacionEsquema.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(CreacionEsquema.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(CreacionEsquema.class.getName()).log(Level.SEVERE, null, ex);
         }
     } 
 }

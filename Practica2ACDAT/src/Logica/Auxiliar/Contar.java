@@ -26,6 +26,8 @@ public class Contar {
             = "SELECT count(*) FROM alumno;";
     String numModulos
             = "SELECT count(*) FROM modulo;";
+    String numProfesores
+            = "SELECT count(*) FROM profesor;";
 
     //Objetos comunes
     Connection conexion = null;
@@ -50,7 +52,7 @@ public class Contar {
     }
 
     //Este método devuelve el número de alumnos.
-    //Útil a la hora de crear el array de nombres y el menú desplegable
+    //Útil a la hora de crear el array de nombres y la lista desplegable
     public int contarAlumnos() {
         int cont = 0;
         
@@ -67,12 +69,28 @@ public class Contar {
     }
 
     //Este método devuelve el número de módulos.
-    //Útil a la hora de crear el array de nombres y el menú desplegable
+    //Útil a la hora de crear el array de nombres y la lista desplegable
     public int contarModulos() {
         int cont = 0;
         
         try {
             result = sentencia.executeQuery(numModulos);
+            while (result.next()) {
+                cont = result.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Contar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return cont;
+    }
+    
+    //Este método devuelve el número de profesores.
+    public int contarProfesores() {
+        int cont = 0;
+        
+        try {
+            result = sentencia.executeQuery(numProfesores);
             while (result.next()) {
                 cont = result.getInt(1);
             }

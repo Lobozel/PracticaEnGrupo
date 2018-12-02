@@ -12,8 +12,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -88,6 +87,8 @@ public class CrearEsquema {
             sentencia.execute(tablaProfesor);
             sentencia.execute(tablaAlumno);
             sentencia.execute(tablaModulo_Alumno);
+            JOptionPane.showMessageDialog(null, "Creación del Esquema de la BD realizado con éxito");
+            return;
         } catch (ClassNotFoundException ex) {
             
         } catch (InstantiationException ex) {
@@ -97,5 +98,6 @@ public class CrearEsquema {
         } catch (SQLException ex) {
             
         }
+        JOptionPane.showMessageDialog(null, "El esquema ya está creado.");
     }    
 }

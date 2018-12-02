@@ -5,12 +5,26 @@
  */
 package Logica;
 
+import Ejercicios.Actualizaciones.EliminarAlumno;
+import Ejercicios.Actualizaciones.EliminarModulo;
+import Ejercicios.Actualizaciones.ModificacionDatosAlumno;
+import Ejercicios.Actualizaciones.ModificacionNotaAlumno;
+import Ejercicios.Consultas.ConsultaAlumnos;
+import Ejercicios.Consultas.ConsultaNotas;
+import Ejercicios.Consultas.ConsultaProfesores;
+import Ejercicios.CrearEsquema;
+import Ejercicios.InsertarDatos.InsertarDatosAlumnos;
+import Ejercicios.InsertarDatos.InsertarDatosModulos;
+import Ejercicios.InsertarDatos.InsertarDatosProfesores;
 import Ejercicios.ModificarTablaModuloAlumno;
+import Ejercicios.Procedimientos.InsertarProcedimientoAltaAlumnos;
+import Ejercicios.Procedimientos.InsertarProcedimientoMatricularAlumnos;
 import Intefaz.Ventana;
 import Logica.Auxiliar.Contar;
 import Logica.Auxiliar.Nombres;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -23,6 +37,19 @@ public class ControlActionListener implements ActionListener {
     String user = "root";
     String pass = "root";
     //Objetos sobre los cuales llamaré a los distintos métodos necesarios
+    CrearEsquema esquema = new CrearEsquema();
+    InsertarDatosAlumnos datosAlumnos = new InsertarDatosAlumnos();
+    InsertarDatosModulos datosModulos = new InsertarDatosModulos();
+    InsertarDatosProfesores datosProfesores = new InsertarDatosProfesores();
+    InsertarProcedimientoAltaAlumnos altaAlumnos = new InsertarProcedimientoAltaAlumnos();
+    InsertarProcedimientoMatricularAlumnos matricularAlumnos = new InsertarProcedimientoMatricularAlumnos();
+    ConsultaAlumnos alumnos = new ConsultaAlumnos();
+    ConsultaNotas notas = new ConsultaNotas();
+    ConsultaProfesores profesores = new ConsultaProfesores();
+    EliminarAlumno eliminarAlumno = new EliminarAlumno();
+    EliminarModulo eliminarModulo = new EliminarModulo();
+    ModificacionDatosAlumno modDatosAlumno = new ModificacionDatosAlumno();
+    ModificacionNotaAlumno modNotaAlumno = new ModificacionNotaAlumno();
     ModificarTablaModuloAlumno modificarTabla = new ModificarTablaModuloAlumno();
     Contar contar = new Contar(url,user,pass);
     Nombres nombres = new Nombres(url,user,pass);
@@ -126,7 +153,7 @@ public class ControlActionListener implements ActionListener {
          * Crear Esquema
          */
         if(e.getSource()==v.crearEsquema){
-            
+            esquema.Ejercicio1(url, user, pass);
         }
         //----------------------------------------------------------------------
         /*
@@ -134,25 +161,60 @@ public class ControlActionListener implements ActionListener {
          */
         //Introducir alumnos
         if(e.getSource()==v.introAlumnos){
-            
+            //Compruebo si ya se ha introducido o no los alumnos
+            int comprobar=contar.contarAlumnos();
+            if(comprobar==0){                
+                datosAlumnos.Ejercicio2_Alumnos(url, user, pass);
+            }else{
+                JOptionPane.showMessageDialog(v, "Los datos ya éxisten", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
         //Introducir modulos
         if(e.getSource()==v.introModulos){
-            
+            //Compruebo si ya se ha introducido o no los modulos
+            int comprobar=contar.contarModulos();
+            if(comprobar==0){                
+                datosModulos.Ejercicio2_Modulos(url, user, pass);
+            }else{
+                JOptionPane.showMessageDialog(v, "Los datos ya éxisten", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
         //Introducir profesores
         if(e.getSource()==v.introProfesores){
-            
+            //Compruebo si ya se ha introducido o no los modulos y los profesores
+            int comprobarM=contar.contarModulos();
+            int comprobarP=contar.contarProfesores();
+            if(comprobarM==0){                
+                JOptionPane.showMessageDialog(v, "Primero es necesario introducir los datos de los Modulos.", "Error", JOptionPane.ERROR_MESSAGE);
+            }else if (comprobarP==0){
+                datosProfesores.Ejercicio2_Profesores(url, user, pass);
+            }else{
+                JOptionPane.showMessageDialog(v, "Los datos ya éxisten", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         }
         //----------------------------------------------------------------------
         /*
          * Insertar Procedimientos
          */
         if(e.getSource()==v.insertarAltaAlumnos){
-            
+            //Compruebo si ya se ha introducido o no los alumnos
+            int comprobar=contar.contarAlumnos();
+            if(comprobar==0){        
+                JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Alumnos", "Error", JOptionPane.ERROR_MESSAGE);                        
+            }else{
+                altaAlumnos.Ejercicio2_insertarAltaAlumnos(url, user, pass);
+            }
         }
         if(e.getSource()==v.insertarMatriculaAlumnos){
-            
+            //Compruebo si ya se ha introducido o no los alumnos y de los modulos
+            int comprobarA=contar.contarAlumnos();
+            int comprobarM=contar.contarModulos();
+            if(comprobarA==0 || comprobarM==0){        
+                JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Alumnos\n"
+                        + "y los datos de los Modulos", "Error", JOptionPane.ERROR_MESSAGE);                        
+            }else{
+                matricularAlumnos.Ejercicio2_insertarMatricularAlumnos(url, user, pass);
+            }
         }
         //----------------------------------------------------------------------
         /*
@@ -207,3 +269,4 @@ public class ControlActionListener implements ActionListener {
         //----------------------------------------------------------------------
     }
 }
+

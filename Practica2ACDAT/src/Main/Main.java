@@ -1,7 +1,7 @@
 
 package Main;
 
-import Ejercicios.Consultas.CreacionEsquema;
+import Ejercicios.CrearEsquema;
 import Ejercicios.InsertarDatos.InsertarDatosAlumnos;
 import Ejercicios.Procedimientos.InsertarProcedimientoAltaAlumnos;
 import Ejercicios.Procedimientos.InsertarProcedimientoMatricularAlumnos;
@@ -20,14 +20,10 @@ public class Main {
         
         Contar contar = new Contar(url,user,pass);
         Nombres nombres = new Nombres(url,user,pass);
+        CrearEsquema crear = new CrearEsquema();
+        crear.Ejercicio1(url, user, pass);
         
-        String[] prueba = new String[contar.contarAlumnos()];;
-        
-        prueba=nombres.listaNombresModulos();
-        
-        for(int i=0;i<prueba.length;i++){
-            System.out.println(prueba[i]);
-        }
+        System.out.println(contar.contarModulos());
         
         //Contar polla1 = new Contar();
         //polla1.contarAlumnos(url, user, pass);

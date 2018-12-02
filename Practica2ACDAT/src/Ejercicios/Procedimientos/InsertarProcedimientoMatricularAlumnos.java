@@ -7,7 +7,6 @@
  */
 package Ejercicios.Procedimientos;
 
-import Ejercicios.Consultas.CreacionEsquema;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -49,13 +48,9 @@ public class InsertarProcedimientoMatricularAlumnos {
             sentencia.execute(procMatricularAlumnos);
             System.out.println("Ha funcionao wey");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CreacionEsquema.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            Logger.getLogger(CreacionEsquema.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(CreacionEsquema.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(CreacionEsquema.class.getName()).log(Level.SEVERE, null, ex);
         }
     } 
     
@@ -89,13 +84,9 @@ public class InsertarProcedimientoMatricularAlumnos {
             
             System.out.println("Ha funcionao wey");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(CreacionEsquema.class.getName()).log(Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            Logger.getLogger(CreacionEsquema.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            Logger.getLogger(CreacionEsquema.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(CreacionEsquema.class.getName()).log(Level.SEVERE, null, ex);
         }
     } 
 }

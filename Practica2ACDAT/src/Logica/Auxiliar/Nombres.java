@@ -25,7 +25,7 @@ public class Nombres {
     String nombresAlumnos
             = "SELECT nombre FROM alumno;";
     String nombresModulos
-            = "SELECT Nombre FROM modulo;";
+            = "SELECT nombre FROM modulo;";
 
     //Objetos comunes
     Connection conexion = null;

@@ -383,10 +383,12 @@ public class ControlActionListener implements ActionListener {
             }
         }
         if (e.getSource() == v.eliminarModulo) {
-            //Compruebo si ya se ha introducido o no los modulos
-            int comprobar = contar.contarModulos();
-            if (comprobar == 0) {
-                JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Modulos", "Error", JOptionPane.ERROR_MESSAGE);
+            //Compruebo si ya se ha introducido o no los alumnos y de los modulos
+            int comprobarA = contar.contarAlumnos();
+            int comprobarM = contar.contarModulos();
+            if (comprobarA == 0 || comprobarM == 0) {
+                JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Alumnos\n"
+                        + "y los datos de los Modulos", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 int id = v.moduloMB.getSelectedIndex() + 1;
                 eliminar.eliminarModulo(url, user, pass, id);

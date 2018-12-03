@@ -27,7 +27,7 @@ public class ProcedimientoMatricularAlumnos {
             "	if (SELECT count(*) FROM modulo_alumno WHERE 'codigo_modulo'=modulo)<30 then" +
             "		SET matricula=1;" +
             "       SELECT count(*)+1 INTO modAlum_count FROM modulo_alumno;" +
-            "        INSERT INTO modulo_alumno VALUES(modAlum_count,alumno,modulo);" +
+            "        INSERT INTO modulo_alumno (`idModulo_Alumno`, `Codigo_alumno`, `Codigo_modulo`)VALUES(modAlum_count,alumno,modulo);" +
             "	else \n" +
             "		SET matricula=0;\n" +
             "	end if;" +

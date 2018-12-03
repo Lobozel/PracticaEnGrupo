@@ -42,8 +42,8 @@ public class ControlActionListener implements ActionListener {
     ProcedimientoAltaAlumnos altaAlumnos = new ProcedimientoAltaAlumnos();
     ProcedimientoMatricularAlumnos matricularAlumnos = new ProcedimientoMatricularAlumnos();
     ConsultaAlumnos alumnos = new ConsultaAlumnos(url, user, pass);
-    ConsultaNotas notas = new ConsultaNotas(url,user,pass);
-    ConsultaProfesores profesores = new ConsultaProfesores(url,user,pass);
+    ConsultaNotas notas = new ConsultaNotas(url, user, pass);
+    ConsultaProfesores profesores = new ConsultaProfesores(url, user, pass);
     EliminarDatos eliminar = new EliminarDatos();
     Modificaciones modificar = new Modificaciones();
     ModificarTablaModuloAlumno modificarTabla = new ModificarTablaModuloAlumno();
@@ -265,10 +265,10 @@ public class ControlActionListener implements ActionListener {
                 JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Alumnos\n"
                         + "y los datos de los Modulos", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                int id=v.notasModulo.getSelectedIndex()+1;                
+                int id = v.notasModulo.getSelectedIndex() + 1;
                 String[] resultado = notas.notasAlumno(id);
                 v.RespuestaConsulta.setText(""); //Borro si hubiese algo
-                v.RespuestaConsulta.append("Las notas del Modulo "+v.notasModulo.getSelectedItem().toString()+" son las siguientes:\n");
+                v.RespuestaConsulta.append("Las notas del Modulo " + v.notasModulo.getSelectedItem().toString() + " son las siguientes:\n");
                 //Pego la consulta en la caja de área de texto
                 for (int i = 0; i < resultado.length; i++) {
                     v.RespuestaConsulta.append(resultado[i] + "\n");
@@ -283,10 +283,10 @@ public class ControlActionListener implements ActionListener {
                 JOptionPane.showMessageDialog(v, "Es necesario introducir primero los datos de los Alumnos\n"
                         + "y los datos de los Profesores", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                int id=v.profesorAlumno.getSelectedIndex()+1;                
+                int id = v.profesorAlumno.getSelectedIndex() + 1;
                 String[] resultado = profesores.profesoresDeAlumno(id);
                 v.RespuestaConsulta.setText(""); //Borro si hubiese algo
-                v.RespuestaConsulta.append("Los Profesores del alumno "+v.profesorAlumno.getSelectedItem().toString()+" son los siguientes:\n");
+                v.RespuestaConsulta.append("Los Profesores del alumno " + v.profesorAlumno.getSelectedItem().toString() + " son los siguientes:\n");
                 //Pego la consulta en la caja de área de texto
                 for (int i = 0; i < resultado.length; i++) {
                     v.RespuestaConsulta.append(resultado[i] + "\n");
@@ -380,6 +380,11 @@ public class ControlActionListener implements ActionListener {
             } else {
                 int id = v.alumnoMB.getSelectedIndex() + 1;
                 eliminar.eliminarAlumno(url, user, pass, id);
+                String[] alumnos = nombres.listaNombresAlumnos();
+                v.alumnoMB.removeAllItems();
+                for (String alumno : alumnos) {
+                    v.alumnoMB.addItem(alumno);
+                }
             }
         }
         if (e.getSource() == v.eliminarModulo) {

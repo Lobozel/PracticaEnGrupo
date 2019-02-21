@@ -1,0 +1,9 @@
+#
+# Generated with Matisse Schema Definition Language 9.1.11
+# Generation date: Wed Feb 20 18:38:40 2019
+#
+# Mapping of Java classes and indexes to the corresponding database schema objects
+#
+Perfume = Perfume
+Flores = Flores
+Tienda = Tienda

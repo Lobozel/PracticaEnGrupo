@@ -1,0 +1,28 @@
+interface Perfume : persistent {
+	attribute Integer idPerf;
+	attribute String nombrePerf;
+	attribute Double precio;
+	
+	relationship Set<Flores> posee [1,-1]
+	inverse Flores::pertenece;
+	relationship Set<Tienda> se_vende[1,-1]
+	inverse Tienda::es_vendido;
+};
+
+interface Flores : persistent {
+	attribute Integer idFlor;
+	attribute String nombreFlor;
+	attribute String color;
+	
+	relationship Perfume pertenece
+	inverse Perfume::posee;
+};
+
+interface Tienda : persistent {
+	attribute Integer idTienda;
+	attribute String nombreTienda;
+	attribute String ubicacion;
+	
+	relationship Set<Perfume> es_vendido[0,-1]
+	inverse Perfume::se_vende;
+};

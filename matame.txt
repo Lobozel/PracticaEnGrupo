@@ -1,0 +1,131 @@
+﻿Carácteristicas importantes de las BBDDOO:
+-Los datos se almacenan como objetos.
+-Soportan las características propias de la Orientación a Objetos.
+-Cada objeto tiene un identificador (OID) único, generado por el sistema y no modificable por el usuario.
+-Jerarquía y extensión de tipos.
+-Los objetos pueden tener una estructura de objeto de complejidad arbitraria.
+-Acceso navegacional de datos.
+-El mismo objeto puede estar representado por múltiples versionas.
+
+Ventajas de un SGBDOO:
+- Transparencia (manipulación directa de datos utilizando un entorno de programación basado en objetos)
+-Gran capacidad de modelado. Gracias al encapsulamiento y la herencia.
+- Flexibilidad
+-Adecuación a aplicaciones avanzadas de bases de datos
+-Interfaz única entre el lenguaje de manipulación de datos y el lenguaje de programación
+-Manipula de forma rápida y ágil objetos complejos.
+-Alta velocidad de procesamiento.
+-Mejora los costes de desarrollo.
+Desventajas de un SGBDOO:
+-Carencia de un modelo de datos universal.
+-Falta de estándares.
+-Falta de experiencia.
+-Competencia de otros modelos.
+-Difícil optimización de consultas.
+-Complejidad.
+
+ODL -> Lenguaje de Definición de Objetos
+OML -> Lenguaje de Manipulación de Objetos
+OQL -> Lenguaje de Consulta
+
+características que describen un objeto según ODMG:
+- identificador (único en BD)
+- Nombre (también identifica objeto)
+- Tiempo de vida (transistorio/persistente)
+- estructura (atómico, colección o estructurado)
+	. Atómico: constan de un único elemento o valor (long, double, char, float, ...)
+	. Estructurados: compuestos por un número fijo de elementos que pueden ser de distinto tipo (date, time, ...)
+	. Colección: número variable de elementos(literal/objeto) del mismo tipo.
+		-> Set<tipo>: no ordenado no duplicados
+		-> Bag<tipo>: no ordenado si duplicados
+		-> List<tipo>: si ordenado si duplicados
+		-> Array<tipo>: si ordenado y permite el acceso por posición
+		-> Dicctionary<clave, valor>: donde el valor está asociado a una clave
+
+Carácteristicas importantes de Db4o:
+- El modelo de clases es el propio esquema de la base de datos.
+- Está diseñada bajo la estrategia de proporcionar bibliotecas de clases con las capacidades tradicionales de las bases de datos y con el objetivo de cero administración
+- Puede trabajar como base de datos embebida (se puede distribuir con la aplicación y solo la aplicación que lanza la base de datos puede acceder a ella)
+
+
+- ObjectContainer: interfaz que permite realizar las principales tareas con la base de objetos. Puede representar una BD independiente o una conexión a un servidor.
+	Proporciona:
+	· store() para almacenar
+	· queryByExample() para consultar
+	· delete() para eliminar
+	· close() para cerrar la conexión
+	. Confirmar commit y deshacer rollback transacciones
+-EmbeddedObjectContainer: interfaz que extiende a ObjectContainery representa un ObjectContainer local atacando a la BD.
+-Db4oEmbedded: proporciona métodos estáticos para conectar con la BD en modo embebido.
+-OBjectServer: interfaz que permite trabajar con una bd db4o en modo cliente-servidor
+-ObjectSet: interfaz que representa el conjunto de objetos devueltos por una consulta.
+
+Tipos de consultas en Db4o:
+- Query By Example(QBE): es la forma más sencilla y básica de realizar consultas, pero tienen bastantes limitaciones.
+	· Se basan en suministrar a db4o un objeto que sirva de plantilla o prototipo de consulta.
+	Limitaciones:
+	· Hay que proporcionar un ejemplo (objeto prototipo)
+	· No se pueden realizar explesiones avanzadas
+	· No se puede preguntar por ciertos objetos (valor 0, strings vacios o campo null)
+	· Se necesita un constructor para crear los objetos con valores no inicializados
+- Native Queries (NQ): es la interface principal de consultas de la base de objetos.
+	·Permite realizar un filtro contra todas las instacias de una clases
+	·Deberán retornar 'verdadero' para incluir determinadas instancias dentro del conjunto de resultados
+	·Db4o realiza una optimización de las expresiones utilizadas mediante un procesador de consultas que intenta resolverlas usando índices, 
+	sin necesidad de instanciar los objetos reales donde sea posible.
+- Simple Object Data Access (SODA): Permite generar consultas dinámicas. 
+	·Es más potetente que las anteriores y más rápida, puesto que las anteriores se tienen que traducir a SODA para ejecutarse.
+	·Permite redactar consultas en tiempo de ejecución
+	·constrain() agrega una condición de restricción o Constraint a un nodo
+	·descent() mueve de un nodo a otros
+
+Características de las bases de datos objeto-relacionales:
+
+Las bases de datos objeto-relacionales, BDOR, son una extensión de las bases de datos relacionales
+tradicionales a las que se les ha añadido conceptos del modelo orientado a objetos.
+
+Características más importantes de las BDOR:
+
+Soporte de tipos complejos.
+◦ Tipos definidos por el usuario.
+◦ Tipos colección
+• Reusabilidad. Posibilidad de guardar esos tipos en el gestor de la BDOR, para reutilizarlos en
+tantas tablas como sea necesario.
+• Soporte para crear métodos o funciones. Posibilidad de definir funciones y almacenarlas en el
+gestor. Las funciones pueden modelar el comportamiento de un tipo objeto, en este caso se llaman
+métodos.
+• Se pueden almacenar múliples valores en una columna de una misma fila.
+• Tablas anidadas. Se pueden definir columnas como arrays o vectores multidimensionales, tanto de
+tipos básicos como de tipos estructurados o colecciones, esto es, se pueden anidar tablas
+• Herencia de tipos y tablas.
+• Compatibilidad con las bases de datos relacionales tradicionales. Es decir, se pueden pasar las
+aplicaciones sobre bases de datos relacionales al nuevo modelo sin tener que rescribirlas.
+
+Tipos de datos: tipos básicos y tipos estructurados
+
+• Tipos básicos: el equivalente a los tipos de
+columna usados en cualquier Base de Datos
+Relacional.
+• Tipos compuestos: un conjunto de valores
+definidos por el usuario con estructura de fila de
+tabla, y que como tal puede estar formada por tipos
+de datos distintos.
+• Tipos array: un conjunto de valores distribuidos en
+un vector multidimensional, con la condición de que
+todos sean del mismo tipo de dato.
+
+Transacciones:
+una transacción es un conjunto de sentencias que se ejecutan formando una unidad de trabajo
+Las transacciones deben cumplir el criterio ACID:
+• Atomicidad. Se deben cumplir todas las operaciones de la
+transacción o no se cumple ninguna; no puede quedar a medias.
+• Consistencia.: La transacción solo termina si la base de datos
+queda en un estado consistente.
+• Isolation (Aislamiento). Las transacciones sobre la misma
+información deben ser independientes, para que no interfieran sus
+operaciones y no se produzca ningún tipo de error.
+• Durabilidad. Cuando la transacción termina el resultado de la
+misma perdura, y no se puede deshacer aunque falle el sistema.
+
+
+

@@ -1,4 +1,8 @@
-﻿Carácteristicas importantes de las BBDDOO:
+﻿
+Carpeta dragongrox:
+https://drive.google.com/drive/folders/1IRbyQGOcIsBbdMSnRE1GdN73FVwBnGst
+
+Carácteristicas importantes de las BBDDOO:
 -Los datos se almacenan como objetos.
 -Soportan las características propias de la Orientación a Objetos.
 -Cada objeto tiene un identificador (OID) único, generado por el sistema y no modificable por el usuario.
